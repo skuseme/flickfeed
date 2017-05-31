@@ -10,8 +10,8 @@ session_start();
 $conf = array(
   "SiteTitle" => "flick.feed",
   "SiteContact" => "site@skuse.me",
-  "SiteURL" => "https://skuse.me/flickfeed",
-  "PrivacyPolicyURL" => "https://skuse.me/flickfeed/?page=privacy"
+  "SiteURL" => "https://skuse.me/",
+  "PrivacyPolicyURL" => "https://skuse.me/?page=privacy"
   );
 
 function loadPage($page){
