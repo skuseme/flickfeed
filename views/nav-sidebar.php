@@ -1,10 +1,37 @@
 <?php
-    echo "
-        <a class='item sidebar-link dashboard' data-link='dashboard' href='?page=dashboard'><i class='icon dashboard'></i>Dashboard</a>
-        <a class='item sidebar-link abc' data-link='abc' href='?page=abc'><i class='icon newspaper'></i>ABC News</a>
-        <a class='item sidebar-link bbc' data-link='bbc' href='?page=bbc'><i class='icon newspaper'></i>BBC News</a>
-        <a class='item sidebar-link smh' data-link='smh' href='?page=smh'><i class='icon newspaper'></i>Sydney Morning Herald</a>
-        <a class='item sidebar-link aljazeera' data-link='aljazeera' href='?page=aljazeera'><i class='icon newspaper'></i>Aljazeera</a>
-        <a class='item sidebar-link gizmodo' data-link='gizmodo' href='?page=gizmodo'><i class='icon rss'></i>Gizmodo Australia</a>
-    ";
+	$links = array(
+		array(
+			"title" => "Dashboard",
+			"shortname" => "dashboard",
+			"icon" => "dashboard"
+		),
+		array(
+			"title" => "ABC News",
+			"shortname" => "abc",
+			"icon" => "newspaper"
+		),
+		array(
+			"title" => "BBC News",
+			"shortname" => "bbc",
+			"icon" => "newspaper"
+		),
+		array(
+			"title" => "Sydney Morning Herald",
+			"shortname" => "smh",
+			"icon" => "newspaper"
+		),
+		array(
+			"title" => "Aljazeera",
+			"shortname" => "aljazeera",
+			"icon" => "newspaper"
+		),
+		array("title" => "Gizmodo Australia",
+			"shortname" => "gizmodo",
+			"icon" => "rss"
+		)
+	);
+
+	foreach($links as $link){
+		echo "<a class='item sidebar-link ".$link['shortname']."' data-link='".$link['shortname']."' href='?page=".$link['shortname']."'><i class='icon ".$link['icon']."'></i>".$link['title']."</a>";
+	}
 ?>
