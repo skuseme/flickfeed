@@ -1,6 +1,6 @@
 <?php
 //
-// px.discover - skuse.me - Tom Skuse - 2016
+// flick.feed - skuse.me - Tom Skuse - 2017
 //
 session_start();
 
@@ -32,6 +32,9 @@ function loadFeed($feed) {
   return $output;
 }
 
+// XML-string-to-php-array
+//github.com @gaarf
+//https://github.com/gaarf/XML-string-to-PHP-array/blob/master/xmlstr_to_array.php
 function domnode_to_array($node) {
   $output = array();
   switch ($node->nodeType) {
