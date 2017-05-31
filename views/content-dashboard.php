@@ -4,7 +4,10 @@
     	"top" => loadFeed("http://www.abc.net.au/news/feed/45910/rss.xml"),
     	"latest" => loadFeed("http://www.abc.net.au/news/feed/51120/rss.xml"),
     	"australia" => loadFeed("http://www.abc.net.au/news/feed/46182/rss.xml"),
-    	"world" => loadFeed("http://www.abc.net.au/news/feed/52278/rss.xml")
+    	"world" => loadFeed("http://www.abc.net.au/news/feed/52278/rss.xml"),
+    	"business" => loadFeed("http://www.abc.net.au/news/feed/51892/rss.xml"),
+    	"entertainment" => loadFeed("http://www.abc.net.au/news/feed/46800/rss.xml"),
+    	"sport" => loadFeed("http://www.abc.net.au/news/feed/45924/rss.xml"),
     );
     // Get the current page/news source
     if(isset($_GET['page'])){
