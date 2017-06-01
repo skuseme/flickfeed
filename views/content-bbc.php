@@ -37,10 +37,16 @@
 		<div class='ui items'>
 		<?php
 			foreach($data['channel']['item'] as $item => $i){
+				$imgurl = $i['media:thumbnail']['@attributes']['url'];
+				if(filter_var($imgurl, FILTER_VALIDATE_URL) === FALSE){
+					$imgsrc = "images/image.jpg";
+				}else{
+					$imgsrc = $imgurl;
+				}
 				echo "
 				<div class='item'>
 					<div class='image'>
-						<img src='".$i['media:thumbnail']['@attributes']['url']."'>
+						<img src='".$imgsrc."'>
 					</div>
 					<div class='content'>
 						<a class='header' href='".$i['link']."' target='_blank'>".$i['title']."</a>
