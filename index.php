@@ -29,7 +29,6 @@ include_once 'config.php';
   </div>
 
   <div id="container" class="ui">
-  	<div class='ui active centered text inline loader'><p>Loading</p></div>
   </div>
 </body>
 
