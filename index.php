@@ -16,7 +16,7 @@ include_once 'config.php';
 		<link rel='stylesheet' href='css/semantic.min.css' type='text/css' />
 		<link rel='stylesheet' href='css/style.css' type='text/css'>
 
-		<script src='js/jquery-3.1.1.min.js'></script>
+		<script src='js/jquery.min.js'></script>
 		<script src='js/semantic.min.js'></script>
 		<script src='js/core.js'></script>
 	</head>
