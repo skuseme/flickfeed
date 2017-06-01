@@ -1,4 +1,5 @@
 <?php
+	require('../config.php');
 	// Define the feeds
     $feeds = array(
     	"latest" => loadFeed("http://www.abc.net.au/news/feed/51120/rss.xml"),
@@ -7,27 +8,18 @@
     	"world" => loadFeed("http://www.abc.net.au/news/feed/52278/rss.xml"),
     	"business" => loadFeed("http://www.abc.net.au/news/feed/51892/rss.xml"),
     	"entertainment" => loadFeed("http://www.abc.net.au/news/feed/46800/rss.xml"),
-    	"sport" => loadFeed("http://www.abc.net.au/news/feed/45924/rss.xml"),
+    	"sport" => loadFeed("http://www.abc.net.au/news/feed/45924/rss.xml")
     );
-    // Get the current page/news source
-    if(isset($_GET['page'])){
-		$page = $_GET['page'];
-    }else{
-		$page = "dashboard";
-    }
-    // Get the required feed and populate data
-    if(isset($_GET['feed'])){
-    	$data = $feeds[$_GET['feed']];
-    }else{
-    	$data = reset($feeds);
-    }
+
+    $page = GetPage($_POST['page']);
+    $data = getFeed($feeds, $_POST['feed']);
 ?>
 
-<div class='ui top fixed menu'>
+<div id="navbar" class='ui top fixed menu'>
 	<div class='header item'><?php echo $data['channel']['image']['title']; ?></div>
 	<?php
 		foreach ($feeds as $key => $feed){
-			echo "<a class='item' style='text-transform: capitalize;' href='?page=".$page."&feed=".$key."'>".$key."</a>";
+			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
 		}
 	?>
 </div>
