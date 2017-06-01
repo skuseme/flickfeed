@@ -18,8 +18,8 @@ $( document ).ready(function() {
         LoadFeed(page, null)
     }
     
-    $(".sidebar-link").click(function(){$(".sidebar-link").removeClass("active")});
     $(".sidebar-link").click(function(){
+        $(".sidebar-link").removeClass("active")
         var link = $(this).attr("data-link");
         $("." + link).addClass("active");
     });
@@ -30,7 +30,7 @@ $( document ).ready(function() {
         LoadFeed(link, null)
     });
 
-    $(".feed-link").click(function(){
+    $("body").on("click",".feed-link",function(){
         $("#container").html("<div class='ui active centered text inline loader'><p>Loading</p></div>")
         var source = $(this).attr("data-source");
         var feed = $(this).attr("data-feed");
