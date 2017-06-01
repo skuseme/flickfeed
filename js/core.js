@@ -37,11 +37,22 @@ $( document ).ready(function() {
 });
 
 function LoadFeed(source, feed){
+	curPage = source;
+    curFeed = feed;
     $("#container").html("<div class='ui active centered text inline loader'><p>"+randomLoadingMessage()+"</p></div>")
     $.post("views/content-"+source+".php", {page: source, feed: feed}).done(function( data ){
         $("#container").html(data)
     });
 }
+
+var curPage = null;
+var curFeed = null;
+
+setInterval(function(){
+	var now = new Date(Date.now());
+	console.log(now + "- Reloading " + curPage + "/" + curFeed)
+	LoadFeed(curPage, curFeed);
+}, 300000);
 
 var get = [];
 var type = window.location.hash.substr(1);
