@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require 'config.php';
+include_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +28,9 @@ require 'config.php';
     <?php include('views/nav-sidebar.php'); ?>
   </div>
 
-  <?php
-    if(isset($_GET['page'])){
-      include(loadPage($_GET['page']));
-    }else{
-      include(loadPage("dashboard"));
-    }
-  ?>
+  <div id="container" class="ui">
+  	<div class='ui active centered text inline loader'><p>Loading</p></div>
+  </div>
 </body>
 
 </html>

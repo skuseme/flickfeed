@@ -10,15 +10,24 @@ session_start();
 $conf = array(
   "SiteTitle" => "flick.feed",
   "SiteContact" => "site@skuse.me",
-  "SiteURL" => "https://skuse.me/",
-  "PrivacyPolicyURL" => "https://skuse.me/?page=privacy"
+  "SiteURL" => "https://skuse.me",
+  "PrivacyPolicyURL" => "https://skuse.me/?page=privacy",
+  "DefaultFeed" => "abc"
   );
 
-function loadPage($page){
-  if(isset($page)){
-    return "views/content-".$page.".php";
+function getPage($page){
+  if(isset($page) && $page != null){
+    return $page;
   }else{
-    return "views/content-dashboard.php";
+    return $conf['DefaultFeed'];
+  }
+}
+
+function getFeed($feeds, $feed){
+  if(isset($feed) && $feed != null){
+    return $feeds[$feed];
+  }else{
+    return reset($feeds);
   }
 }
 

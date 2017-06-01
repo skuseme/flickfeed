@@ -1,4 +1,5 @@
 <?php
+	include_once('../config.php');
 	// Define the feeds
     $feeds = array(
     	"all" => loadFeed("http://feeds.bbci.co.uk/news/rss.xml"),
@@ -10,25 +11,16 @@
     	"science" => loadFeed("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"),
     	"entertainment" => loadFeed("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")
     );
-    // Get the current page/news source
-    if(isset($_GET['page'])){
-		$page = $_GET['page'];
-    }else{
-		$page = "dashboard";
-    }
-    // Get the required feed and populate data
-    if(isset($_GET['feed'])){
-    	$data = $feeds[$_GET['feed']];
-    }else{
-    	$data = reset($feeds);
-    }
+
+    $page = GetPage($_POST['page']);
+    $data = getFeed($feeds, $_POST['feed']);
 ?>
 
-<div class='ui top fixed menu'>
+<div id="navbar" class='ui top fixed menu'>
 	<div class='header item'><?php echo $data['channel']['image']['title']; ?></div>
 	<?php
 		foreach ($feeds as $key => $feed){
-			echo "<a class='item' style='text-transform: capitalize;' href='?page=".$page."&feed=".$key."'>".$key."</a>";
+			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
 		}
 	?>
 </div>
