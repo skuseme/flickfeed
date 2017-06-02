@@ -3,7 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once 'config.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,14 +21,24 @@ include_once 'config.php';
 	</head>
 
 <body>
-  <div class="ui visible inverted left vertical sidebar menu">
-    <div class="header item"><?php echo $conf['SiteTitle']; ?></div>
-    <div class="ui horizontal divider"></div>
-    <?php include('views/nav-sidebar.php'); ?>
-  </div>
+	<div class="ui visible inverted left vertical sidebar menu">
+		<div class="header item"><?php echo $conf['SiteTitle']; ?></div>
+		<div class="ui horizontal divider"></div>
+		<?php include('views/nav-sidebar.php'); ?>
 
-  <div id="container" class="ui">
-  </div>
+	</div>
+
+	<div id="container" class="ui">
+	</div>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-87410597-3', 'auto');
+		ga('send', 'pageview');
+	</script>
 </body>
 
 </html>

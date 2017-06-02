@@ -36,6 +36,7 @@
 	);
 
 	foreach($links as $link){
-		echo "<a class='item sidebar-link ".$link['shortname']."' data-link='".$link['shortname']."' href='#page=".$link['shortname']."'><i class='icon ".$link['icon']."'></i>".$link['title']."</a>";
+		echo "<a class='item sidebar-link ".$link['shortname']."' data-link='".$link['shortname']."' href='#page=".$link['shortname']."'><i class='icon ".$link['icon']."'></i>".$link['title']."</a>
+		";
 	}
 ?>
