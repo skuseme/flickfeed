@@ -2,14 +2,13 @@
 	include_once('../config.php');
 	// Define the feeds
     $feeds = array(
-    	"all" => loadFeed("http://feeds.bbci.co.uk/news/rss.xml"),
-    	"world" => loadFeed("http://feeds.bbci.co.uk/news/world/rss.xml"),
-    	"technology" => loadFeed("http://feeds.bbci.co.uk/news/technology/rss.xml"),
-    	"business" => loadFeed("http://feeds.bbci.co.uk/news/business/rss.xml"),
-    	"health" => loadFeed("http://feeds.bbci.co.uk/news/health/rss.xml"),
-    	"education" => loadFeed("http://feeds.bbci.co.uk/news/education/rss.xml"),
-    	"science" => loadFeed("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"),
-    	"entertainment" => loadFeed("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml")
+    	"top" => loadFeed("http://www.dailymail.co.uk/news/index.rss"),
+    	"latest" => loadFeed("http://www.dailymail.co.uk/news/articles.rss"),
+    	"australia" => loadFeed("http://www.dailymail.co.uk/auhome/index.rss"),
+    	"afghanistan" => loadFeed("http://www.dailymail.co.uk/news/afghanistan/index.rss"),
+    	"iraq" => loadFeed("http://www.dailymail.co.uk/news/iraq/index.rss"),
+    	"syria" => loadFeed("http://www.dailymail.co.uk/news/syria/index.rss"),
+    	"sport" => loadFeed("http://www.dailymail.co.uk/sport/index.rss")
     );
 
     $page = GetPage($_POST['page']);
@@ -23,7 +22,7 @@
 ?>
 
 <div id="navbar" class='ui top fixed menu'>
-	<div class='header item'><?php echo $data['channel']['image']['title']; ?></div>
+	<div class='header item'>Daily Mail</div>
 	<?php
 		foreach ($feeds as $key => $feed){
 			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link ".$page."-".$key."' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
@@ -43,7 +42,7 @@
 		<div class='ui items'>
 		<?php
 			foreach($data['channel']['item'] as $item => $i){
-				$imgurl = $i['media:thumbnail']['@attributes']['url'];
+				$imgurl = $i['enclosure']['@attributes']['url'];
 				if(filter_var($imgurl, FILTER_VALIDATE_URL) === FALSE){
 					$imgsrc = "images/image.jpg";
 				}else{
@@ -56,7 +55,7 @@
 					</div>
 					<div class='content'>
 						<a class='header' href='".$i['link']."' target='_blank'>".$i['title']."</a>
-						<div class='meta'><span></span></div>
+						<div class='meta'><span>".$i['media:group']['media:description']."</span></div>
 						<div class='description'><p>".$i['description']."</p></div>
 						<div class='extra'>".$i['pubDate']."</div>
 					</div>

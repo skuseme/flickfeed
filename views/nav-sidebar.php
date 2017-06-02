@@ -15,6 +15,10 @@
 			"shortname" => "bbc",
 			"icon" => "newspaper"
 		),
+		array("title" => "Daily Mail",
+			"shortname" => "dailymail",
+			"icon" => "newspaper"
+		),
 		array(
 			"title" => "Sydney Morning Herald",
 			"shortname" => "smh",

@@ -2,24 +2,29 @@
 	include_once('../config.php');
 	// Define the feeds
     $feeds = array(
-    	"latest" => loadFeed("http://www.abc.net.au/news/feed/51120/rss.xml"),
     	"top" => loadFeed("http://www.abc.net.au/news/feed/45910/rss.xml"),
-    	"australia" => loadFeed("http://www.abc.net.au/news/feed/46182/rss.xml"),
+    	"latest" => loadFeed("http://www.abc.net.au/news/feed/51120/rss.xml"),
     	"world" => loadFeed("http://www.abc.net.au/news/feed/52278/rss.xml"),
     	"business" => loadFeed("http://www.abc.net.au/news/feed/51892/rss.xml"),
     	"entertainment" => loadFeed("http://www.abc.net.au/news/feed/46800/rss.xml"),
-    	"sport" => loadFeed("http://www.abc.net.au/news/feed/45924/rss.xml"),
+    	"sport" => loadFeed("http://www.abc.net.au/news/feed/45924/rss.xml")
     );
 
     $page = GetPage($_POST['page']);
     $data = getFeed($feeds, $_POST['feed']);
+    
+    if($conf['debug'] == true){
+	    echo "<pre>";
+	    print_r($data);
+	    echo "</pre>";
+    }
 ?>
 
 <div id="navbar" class='ui top fixed menu'>
 	<div class='header item'><?php echo $data['channel']['image']['title']; ?></div>
 	<?php
 		foreach ($feeds as $key => $feed){
-			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
+			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link ".$page."-".$key."' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
 		}
 	?>
 </div>

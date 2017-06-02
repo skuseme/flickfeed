@@ -7,13 +7,19 @@
 
     $page = GetPage($_POST['page']);
     $data = getFeed($feeds, $_POST['feed']);
+    
+    if($conf['debug'] == true){
+	    echo "<pre>";
+	    print_r($data);
+	    echo "</pre>";
+    }
 ?>
 
 <div id="navbar" class='ui top fixed menu'>
 	<div class='header item'><?php echo $data['channel']['title']; ?></div>
 	<?php
 		foreach ($feeds as $key => $feed){
-			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
+			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link ".$page."-".$key."' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";
 		}
 	?>
 </div>

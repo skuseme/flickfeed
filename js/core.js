@@ -42,7 +42,13 @@ function LoadFeed(source, feed){
     $("#container").html("<div class='ui active centered text inline loader'><p>"+randomLoadingMessage()+"</p></div>")
     $.post("views/content-"+source+".php", {page: source, feed: feed}).done(function( data ){
         $("#container").html(data)
+        if(feed == null){
+        	$(".feed-link").first().addClass("active")
+        }else{
+        	$("."+source+"-"+feed).addClass("active")
+        }
     });
+    console.log("LoadFeed - " + source+"/"+feed)
 }
 
 var curPage = null;

@@ -12,7 +12,8 @@ $conf = array(
   "SiteContact" => "site@skuse.me",
   "SiteURL" => "https://skuse.me",
   "PrivacyPolicyURL" => "https://skuse.me/?page=privacy",
-  "DefaultFeed" => "abc"
+  "DefaultFeed" => "abc",
+  "debug" => false
   );
 
 function getPage($page){
