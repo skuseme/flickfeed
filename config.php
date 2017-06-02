@@ -14,6 +14,7 @@ $conf = array(
   "SiteURL" => "https://skuse.me",
   "PrivacyPolicyURL" => "https://skuse.me/?page=privacy",
   "DefaultFeed" => "abc",
+  "GoogleAnalyticsID" => "UA-87410597-3",
   "debug" => false
   );
 
