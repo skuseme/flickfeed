@@ -48,6 +48,10 @@ function LoadFeed(source, feed){
         	$("."+source+"-"+feed).addClass("active")
         }
         UpdateTracker(source, feed)
+        
+        if($(window).width() < 767){
+        	$("div.image").removeClass("image").addClass("ui fluid image");
+    	}
     });
     console.log("LoadFeed - " + source+"/"+feed)
 }
@@ -59,11 +63,13 @@ function UpdateTracker(source, feed){
 	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 	ga('create', gaTrackerID, 'auto');
-	ga('set', {
-		page: '#page='+source+'&feed='+feed,
-		title: source+' / '+feed
+	ga('send', 'pageview', {
+		'page': '#page='+source+'&feed='+feed,
+		'title': source+' / '+feed,
+		'hitCallback': function() {
+			console.log("Hit callback");
+		}
 	});
-	ga('send', 'pageview');
 }
 
 var curPage = null;

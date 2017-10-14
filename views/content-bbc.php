@@ -51,7 +51,7 @@
 				}
 				echo "
 				<div class='item'>
-					<div class='image'>
+					<div id='itemimage' class='image'>
 						<img src='".$imgsrc."'>
 					</div>
 					<div class='content'>

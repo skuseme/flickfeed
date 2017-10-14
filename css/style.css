@@ -9,3 +9,22 @@
 #debugNotification{
 	margin-bottom: -14px;
 }
+
+@media all and (max-width:630px){
+	#sidemenu{
+	  display:none
+	}
+	.ui#container{
+	  padding-top: 40px;
+	  padding-left: 0px;
+	}
+	.ui#navbar{
+	  padding-left: 0px;
+	}
+}
+
+.ui.items:not(.unstackable)>.item>.image,.ui.items:not(.unstackable)>.item>.image>img{
+	max-width:100%!important;
+	/*width:auto!important;*/
+	max-height:250px!important;
+}

@@ -21,11 +21,10 @@ include_once 'config.php';
 	</head>
 
 <body>
-	<div class="ui visible inverted left vertical sidebar menu">
+	<div class="ui visible inverted left vertical sidebar menu" id="sidemenu">
 		<div class="header item"><?php echo $conf['SiteTitle']; ?></div>
 		<div class="ui horizontal divider"></div>
 		<?php include('views/nav-sidebar.php'); ?>
-
 	</div>
 
 	<div id="container" class="ui">
