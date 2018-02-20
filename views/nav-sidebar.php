@@ -32,6 +32,10 @@
 		array("title" => "Gizmodo Australia",
 			"shortname" => "gizmodo",
 			"icon" => "rss"
+		),
+		array("title" => "Headlines",
+			"shortname" => "headlines",
+			"icon" => "rss"
 		)
 	);
 

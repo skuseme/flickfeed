@@ -133,15 +133,15 @@ usort($data, 'sortbyTimestamp');
 
 foreach($data as $item => $i){
     $item = $xml->addChild('item');
-    $item->addChild('channel_title', $i['channel_title']);
-    $item->addChild('channel_image', $i['channel_image']);
-    $item->addChild('channel_link', $i['channel_link']);
-    $item->addChild('item_title', $i['item_title']);
-    $item->addChild('item_link', $i['item_link']);
-    $item->addChild('item_desc', $i['item_desc']);
-    $item->addChild('item_image', $i['item_image']);
-    $item->addChild('item_imagedesc', $i['item_imagedesc']);
-    $item->addChild('item_pubdate', $i['item_pubdate']);
+    $item->channel_title = $i['channel_title'];
+    $item->channel_image = $i['channel_image'];
+    $item->channel_link = $i['channel_link'];
+    $item->item_title = $i['item_title'];
+    $item->item_link = $i['item_link'];
+    $item->item_desc = $i['item_desc'];
+    $item->item_image = $i['item_image'];
+    $item->item_imagedesc = $i['item_imagedesc'];
+    $item->item_pubdate = $i['item_pubdate'];
 }
 
 Header('Content-type: text/xml');

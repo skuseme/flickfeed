@@ -58,6 +58,46 @@ function sortbyTimestamp($a, $b){
     return $b['item_timestamp'] - $a['item_timestamp'];
 }
 
+function sortByPublished($a, $b){
+    return $b['epoch'] - $a['epoch'];
+}
+
+function handleJSON($feeds){
+  $data = array();
+  foreach($feeds as $feed){
+    $array = json_decode(file_get_contents($feed), true);
+    $source = $array['source'];
+    foreach($array['articles'] as $item => $i){
+      
+      if(isset($i['author'])){
+        $author = $i['author'];
+      }else{
+        $author = "0";
+      }
+
+      $epoch = strtotime($i['publishedAt']);
+      $publish = date('r', $epoch);
+
+      $srcImage = "images/".$source.".png";
+
+      $article = array(
+        "author" => $author,
+        "srcImage" => $srcImage,
+        "source" => $source,
+        "title" => $i['title'],
+        "description" => $i['description'],
+        "url" => $i ['url'],
+        "urlToImage" => $i['urlToImage'],
+        "epoch" => $epoch,
+        "published" => $publish
+      );
+      array_push($data, $article);
+    }
+  }
+  usort($data, 'sortByPublished');
+  return $data;
+}
+
 // XML-string-to-php-array
 //github.com @gaarf
 //https://github.com/gaarf/XML-string-to-PHP-array/blob/master/xmlstr_to_array.php
