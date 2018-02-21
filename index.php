@@ -3,12 +3,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once 'config.php';
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset='utf-8'>
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-		<meta name='viewport' content='initial-scale=1.0, user-scalable=no' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		
 		<title><?php echo $conf['SiteTitle']; ?></title>
 
@@ -21,14 +22,16 @@ include_once 'config.php';
 	</head>
 
 <body>
-	<div class="ui visible inverted left vertical sidebar menu" id="sidemenu">
+	<div class="ui sidebar inverted vertical left visible menu">
 		<div class="header item"><?php echo $conf['SiteTitle']; ?></div>
-		<div class="ui horizontal divider"></div>
 		<?php include('views/nav-sidebar.php'); ?>
 	</div>
-
-	<div id="container" class="ui">
+	<div id="container" class="ui pusher">
 	</div>
 </body>
 
 </html>
+
+<!--
+
+!-->

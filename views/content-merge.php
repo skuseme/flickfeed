@@ -16,7 +16,7 @@
 ?>
 
 <div id="navbar" class='ui top fixed menu'>
-	<div class='header item'>Dashboard</div>
+	<div onClick="hamburger()" class='header item'><i class='icon bars'></i>Dashboard</div>
 	<div class="ui category search item">
 		<div class="ui transparent icon input">
 			<input class="prompt" type="text" placeholder="Search...">

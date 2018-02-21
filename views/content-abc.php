@@ -21,7 +21,7 @@
 ?>
 
 <div id="navbar" class='ui top fixed menu'>
-	<div class='header item'><?php echo $data['channel']['image']['title']; ?></div>
+	<div onClick="hamburger()" class='header item'><i class='icon bars'></i><?php echo $data['channel']['image']['title']; ?></div>
 	<?php
 		foreach ($feeds as $key => $feed){
 			echo "<a data-feed='".$key."' data-source=".$page." class='item feed-link ".$page."-".$key."' style='text-transform: capitalize;' href='#page=".$page."'>".$key."</a>";

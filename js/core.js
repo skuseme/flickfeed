@@ -6,6 +6,11 @@ $( document ).ready(function() {
             $("#debugNotification").remove();
         });
     });
+    
+	$('.sidebar').sidebar({
+		dimPage: false,
+		closable: false
+	});
 
     page = get["page"];
     if(page == null){
@@ -35,6 +40,10 @@ $( document ).ready(function() {
         LoadFeed(source, feed)
     });
 });
+
+function hamburger(){
+	$('.ui.sidebar').sidebar('toggle');
+}
 
 function LoadFeed(source, feed){
 	curPage = source;

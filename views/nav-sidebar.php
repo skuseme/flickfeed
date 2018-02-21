@@ -20,11 +20,6 @@
 			"icon" => "newspaper"
 		),
 		array(
-			"title" => "Sydney Morning Herald",
-			"shortname" => "smh",
-			"icon" => "newspaper"
-		),
-		array(
 			"title" => "Aljazeera",
 			"shortname" => "aljazeera",
 			"icon" => "newspaper"
